@@ -1,0 +1,45 @@
+// BOJ 1736번 쓰레기 치우기
+// https://www.acmicpc.net/problem/1736
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
+		int[][] room = new int[N][M];
+		for (int r = 0; r < N; r++) {
+			st = new StringTokenizer(br.readLine());
+
+			for (int c = 0; c < M; c++) {
+				room[r][c] = Integer.parseInt(st.nextToken());
+			}
+		}
+
+		int count = -1;
+		boolean end = false;
+		while (!end) {
+			end = true;
+			count++;
+			int max = 0;
+			for (int r = 0; r < N; r++) {
+				for (int c = max; c < M; c++) {
+					if (room[r][c] == 1) {
+						max = c;
+						room[r][c] = 0;
+						end = false;
+					}
+				}
+			}
+		}
+
+		// 결과 출력
+		System.out.println(count);
+	}
+}
