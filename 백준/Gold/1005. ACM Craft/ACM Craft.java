@@ -48,8 +48,6 @@ public class Main {
 
 			int W = Integer.parseInt(br.readLine());
 
-			int max = 0;
-			int sum = 0;
 			Queue<int[]> queue = new LinkedList<>();
 			for (int i = 1; i <= N; i++) {
 				if (inDegree[i] == 0) {
@@ -62,7 +60,7 @@ public class Main {
 				int[] curr = queue.poll();
 
 				if (curr[0] == W) {
-					max = Math.max(max, curr[1]);
+					sb.append(curr[1]).append('\n');
 					break;
 				}
 
@@ -76,7 +74,6 @@ public class Main {
 				}
 			}
 
-			sb.append(max).append('\n');
 		}
 
 		// 결과 출력
