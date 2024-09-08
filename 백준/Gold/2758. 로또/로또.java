@@ -16,7 +16,6 @@ public class Main {
 		long[][] dp = new long[11][2001];
 
 		Arrays.fill(dp[1], 1);
-		dp[1][0] = 0;
 
 		for (int i = 2; i <= 10; i++) {
 			for (int j = 1; j <= 2000; j++) {
